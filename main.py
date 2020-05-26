@@ -1,6 +1,7 @@
 import cv2
 import numpy as np 
 import yoloDetection
+import dlibDetection
 #from yoloDetection import yolo_detection
 
 cap = cv2.VideoCapture(0)
@@ -8,7 +9,7 @@ cap = cv2.VideoCapture(0)
 while (cap.isOpened()):
     _, frame = cap.read()
     
-    faces = yoloDetection.yolo_detection(frame)
+    faces = dlibDetection.frontal_face(frame)
     print(faces)
     for face in faces:
         [x1, y1, x2, y2] = face

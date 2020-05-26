@@ -62,13 +62,14 @@ def post_process(frame, outs, cnf_threshold, nms_threshold):
 
     for i in indices:
         i = i[0]
-        box = boxes[0]
+        box = boxes[i]
         left = box[0]
         top = box[1]
         width = box[2]
         height = box[3]
-        #left, top, right, bottom = refined_box(left, top, width, height)
-        final_boxes.append(box)
+        left, top, right, bottom = refined_box(left, top, width, height)
+        #final_boxes.append(box)
+        final_boxes.append([left, top, right, bottom])
     
     return final_boxes
 
